@@ -297,4 +297,4 @@ mongoDB로 구현하여 없으므로 생략함
 
 ### API 명세서
 
-- [API 명세서](https://google.com)
+- [API 명세서](https://github.com/SOPT-KLP/gilmong-server/wiki)
