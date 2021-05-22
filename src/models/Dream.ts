@@ -43,7 +43,7 @@ const DreamSchema = new mongoose.Schema({
         default : Date.now,
     },
 
-    sold: {
+    solded: {
         type : Boolean,
         required : true,
     },

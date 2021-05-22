@@ -9,10 +9,14 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 // Define Routes
+app.use("/api/dream", require("./api/dream"));
 app.use("/api/users", require("./api/users"));
+app.use("/api/test", require("./api/test"));
+// app.use("/api/comment",require("./api/comment"))
 // app.use("/api/profile", require("./api/profile"));
-app.use("/api/posts", require("./api/post"));
+// app.use("/api/posts", require("./api/post"));
 app.use("/api/auth", require("./api/auth"));
+
 
 // error handler
 app.use(function (err, req, res, next) {
