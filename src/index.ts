@@ -12,7 +12,8 @@ app.use(express.json());
 app.use("/api/dream", require("./api/dream"));
 app.use("/api/users", require("./api/users"));
 app.use("/api/test", require("./api/test"));
-// app.use("/api/comment",require("./api/comment"))
+app.use("/api/comment",require("./api/comment"));
+app.use("/api/auction",require("./api/auction"));
 // app.use("/api/profile", require("./api/profile"));
 // app.use("/api/posts", require("./api/post"));
 app.use("/api/auth", require("./api/auth"));

@@ -29,6 +29,79 @@ router.get("/", async (req: Request, res: Response) => {
 });
 
 // /**
+//  *  @route POST api/dream
+//  *  @desc Create or update dream
+//  *  @access Public
+//  */
+// router.post(
+//   "/",
+//   async (req: Request, res: Response) => {
+
+//     const {
+//       company,
+//       website,
+//       location,
+//       bio,
+//       status,
+//       githubusername,
+//       skills,
+//       youtube,
+//       facebook,
+//       twitter,
+//       linkedin,
+//       instagram,
+//       user,
+//     } = req.body;
+
+//     // Build profile object
+//     let profileFields: IProfileInputDTO = {
+//       user: user.id,
+//     };
+//     if (company) profileFields.company = company;
+//     if (website) profileFields.website = website;
+//     if (location) profileFields.location = location;
+//     if (bio) profileFields.bio = bio;
+//     if (status) profileFields.status = status;
+//     if (githubusername) profileFields.githubusername = githubusername;
+//     if (skills) {
+//       profileFields.skills = skills.split(",").map((skill) => skill.trim());
+//     }
+
+//     // Build social object
+
+//     if (youtube) profileFields.social.youtube = youtube;
+//     if (facebook) profileFields.social.facebook = facebook;
+//     if (twitter) profileFields.social.twitter = twitter;
+//     if (linkedin) profileFields.social.linkedin = linkedin;
+//     if (instagram) profileFields.social.instagram = instagram;
+
+//     try {
+//       let profile = await Profile.findOne({ user: user.id });
+
+//       if (profile) {
+//         // Update
+//         profile = await Profile.findOneAndUpdate(
+//           { user: user.id },
+//           { $set: { value: profileFields } },
+//           { new: true }
+//         );
+
+//         return res.json(profile);
+//       }
+
+//       // Create
+//       profile = new Profile(profileFields);
+//       await profile.save();
+//       res.json(profile);
+//     } catch (err) {
+//       console.error(err.message);
+//       status(500).send("Server Error.");
+//     }
+//   }
+// );
+
+
+// /**
 //  *  @route GET api/profile/user/:user_id
 //  *  @desc Get profile by user ID
 //  *  @access Public

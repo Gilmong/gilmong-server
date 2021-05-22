@@ -3,7 +3,7 @@ import request from "request";
 import { check, validationResult } from "express-validator";
 import config from "../config";
 
-import Comment from "../models/Comment";
+import Auction from "../models/Auction";
 
 // import Profile from "../models/Profile";
 // import { IProfileInputDTO } from "../interfaces/IProfile";
@@ -11,16 +11,16 @@ import Comment from "../models/Comment";
 const router = Router();
 
 /**
- *  @route GET api/comment
- *  @desc Get all comment
+ *  @route GET api/auction
+ *  @desc Get all auction
  *  @access Public
  */
 router.get("/", async (req: Request, res: Response) => {
-    console.log("finding Comment!");
+    console.log("finding Auction!");
     try {
-        const comments = await Comment.find();
-        console.log("dreams : ",comments)
-        res.json(comments);
+        const auctions = await Auction.find();
+        console.log("dreams : ",auctions)
+        res.json(auctions);
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Server Error");
