@@ -6,65 +6,51 @@ const DreamSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
-    
+
     image : {
-      type : String,
-      required : true,
+        type : String,
+        required : true,
     },
 
     content : {
-      type : String,
-      required : true,
+        type : String,
+        required : true,
     },
 
     keyword : [{
-      type : String,
-      required : true,
+        type : String,
+        required : true,
     }],
 
     dreamer : {
-      name: {
-        type: String,
-        required: true,
-      },
-      email: {
-        type: String,
-        required: true,
-        unique: true,
-      },
+        type : mongoose.Types.ObjectId,
+        ref : "User",
     },
 
     owner : {
-      name: {
-        type: String,
-        required: true,
-      },
-      email: {
-        type: String,
-        required: true,
-        unique: true,
-      },
+        type: mongoose.Types.ObjectId,
+        ref : "User",
     },
 
     price : {
-      type : Number,
-      required : true,
+        type : Number,
+        required : true,
     },
 
     date : {
-      type : Date,
-      required : true,
-      default : Date.now,
+        type : Date,
+        required : true,
+        default : Date.now,
     },
 
-     sold: {
-      type : Boolean,
-      required : true,
+    solded: {
+        type : Boolean,
+        required : true,
     },
 
     auctioning : {
-      type : Boolean,
-      required : true,
+        type : Boolean,
+        required : true,
     }
 
   });

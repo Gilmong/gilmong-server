@@ -1,16 +1,15 @@
 import mongoose from "mongoose";
-import { IUser } from "./IUser";
 
 export interface IDream {
     title : string;
     image : string;
     content : string;
     keyword : [string];
-    dreamer : IUser;
-    owner : IUser;
+    dreamer : mongoose.Types.ObjectId;
+    owner : mongoose.Types.ObjectId;
     price : number;
     date : Date;
-    sold : boolean;
+    solded : boolean;
     auctioning : boolean;
 }
 
@@ -19,10 +18,5 @@ export interface IDreamInputDTO {
     image : string;
     content : string;
     keyword : [string];
-    dreamer : IUser;
-    owner : IUser;
     price : number;
-    date : Date;
-    sold : boolean;
-    auctioning : boolean;
 }
