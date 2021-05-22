@@ -4,26 +4,13 @@ import { IAuction } from "../interfaces/IAuction";
 const AuctionSchema = new mongoose.Schema({
 
     dream: {
-      title : {
-        type : String,
-        required : true,
-      },
-      content : {
-        type : String,
-        required : true,
-        
-      },
-      owner: {
-        name: {
-            type: String,
-            required: true,
-        },
-          email: {
-            type: String,
-            required: true,
-            unique: true,
-        }
-      },
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "Dream",
+    },
+
+    owner: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "User",
     },
 
     initialPrice: {
@@ -35,26 +22,8 @@ const AuctionSchema = new mongoose.Schema({
     },
 
     comment: [{
-        writer: {
-          name: {
-            type: String,
-            required: true,
-          },
-          email: {
-            type: String,
-            required: true,
-            unique: true,
-          }
-        },
-
-        biddingPrice: {
-            type: Number,
-        },
-
-        content: {
-            type: String,
-        },
-
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "Comment",
     }],
 
     enrollDate: {
