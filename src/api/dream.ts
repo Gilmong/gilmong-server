@@ -5,6 +5,7 @@ import config from "../config";
 
 import auth from "../middleware/auth";
 import Dream from "../models/Dream";
+import { IDreamInputDTO } from "../interfaces/IDream";
 
 // import Profile from "../models/Profile";
 // import { IProfileInputDTO } from "../interfaces/IProfile";
@@ -28,77 +29,45 @@ router.get("/", async (req: Request, res: Response) => {
     }
 });
 
-// /**
-//  *  @route POST api/dream
-//  *  @desc Create or update dream
-//  *  @access Public
-//  */
-// router.post(
-//   "/",
-//   async (req: Request, res: Response) => {
 
-//     const {
-//       company,
-//       website,
-//       location,
-//       bio,
-//       status,
-//       githubusername,
-//       skills,
-//       youtube,
-//       facebook,
-//       twitter,
-//       linkedin,
-//       instagram,
-//       user,
-//     } = req.body;
 
-//     // Build profile object
-//     let profileFields: IProfileInputDTO = {
-//       user: user.id,
-//     };
-//     if (company) profileFields.company = company;
-//     if (website) profileFields.website = website;
-//     if (location) profileFields.location = location;
-//     if (bio) profileFields.bio = bio;
-//     if (status) profileFields.status = status;
-//     if (githubusername) profileFields.githubusername = githubusername;
-//     if (skills) {
-//       profileFields.skills = skills.split(",").map((skill) => skill.trim());
-//     }
+/**
+ *  @route POST api/dream
+ *  @desc Create or update dream
+ *  @access Public
+ */
+router.post(
+  "/",
+  async (req: Request, res: Response) => {
 
-//     // Build social object
 
-//     if (youtube) profileFields.social.youtube = youtube;
-//     if (facebook) profileFields.social.facebook = facebook;
-//     if (twitter) profileFields.social.twitter = twitter;
-//     if (linkedin) profileFields.social.linkedin = linkedin;
-//     if (instagram) profileFields.social.instagram = instagram;
+    console.log(req.body);
 
-//     try {
-//       let profile = await Profile.findOne({ user: user.id });
+    const {
+        dreamName,
+        dreamKeyword,
+        dreamPrice,
+        dreamDescription,
+    } = req.body;
 
-//       if (profile) {
-//         // Update
-//         profile = await Profile.findOneAndUpdate(
-//           { user: user.id },
-//           { $set: { value: profileFields } },
-//           { new: true }
-//         );
+    // Build dream object
+    let dreamFields: IDreamInputDTO = {
+        
+    };
 
-//         return res.json(profile);
-//       }
+    if (dreamName) dreamFields.title = dreamName;
+    if (dreamKeyword) dreamFields.keyword = dreamKeyword;
+    if (dreamPrice) dreamFields.price = dreamPrice;
+    if (dreamDescription) dreamFields.content = dreamDescription;
 
-//       // Create
-//       profile = new Profile(profileFields);
-//       await profile.save();
-//       res.json(profile);
-//     } catch (err) {
-//       console.error(err.message);
-//       status(500).send("Server Error.");
-//     }
-//   }
-// );
+
+    // Create
+    const dream = new Dream(dreamFields);
+    await dream.save();
+    res.json(dream);
+    
+  }
+);
 
 
 // /**

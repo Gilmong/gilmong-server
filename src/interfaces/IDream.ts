@@ -14,9 +14,9 @@ export interface IDream {
 }
 
 export interface IDreamInputDTO {
-    title : string;
-    image : string;
-    content : string;
-    keyword : [string];
-    price : number;
+    title? : string;
+    image? : string;
+    content? : string;
+    keyword? : [string];
+    price? : number;
 }

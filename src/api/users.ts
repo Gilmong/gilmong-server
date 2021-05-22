@@ -101,5 +101,22 @@ router.post(
   }
 });
 
+/**
+ *  @route GET api/users/:user_id
+ *  @desc Get one user
+ *  @access Public
+ */
+ router.get("/:user_id", async (req: Request, res: Response) => {
+  console.log("finding one users!");
+  try {
+      const user_id = req.params.user_id;
+      const users = await User.findById(user_id);
+      console.log("dreams : ",users)
+      res.json(users);
+  } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Server Error");
+  }
+});
 
 module.exports = router;
