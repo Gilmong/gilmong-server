@@ -8,6 +8,13 @@
 
 ### models
 
+https://www.notion.so/DB-Schema-d90f5d854b42486488b966a0d31d2be0
+
+- Auction.ts : 경매 과정 및 결과 관련
+- Comment.ts : 입찰을 위한 댓글 관련
+- Dream.ts : 경매하는 꿈 관련
+- User.ts : 경매/입찰에 참여하는 사용자 관련
+
 ### ERD
 
 mongoDB로 구현하여 없으므로 생략함
