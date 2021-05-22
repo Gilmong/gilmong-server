@@ -1,10 +1,8 @@
 import mongoose from "mongoose";
+import { IUser } from "./IUser";
 
 export interface IComment {
-  _id?: mongoose.Types.ObjectId;
-  user: mongoose.Types.ObjectId;
-  text: string;
-  name: string;
-  avatar: string;
-  date?: Date;
+  writer: IUser;
+  biddingPrice: number;
+  content: string;
 }
