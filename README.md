@@ -9,51 +9,53 @@
 
 - /models/Auction.ts
 
-```JSON
+```typescript
 import mongoose from "mongoose";
 import { IAuction } from "../interfaces/IAuction";
 
 const AuctionSchema = new mongoose.Schema({
+  dream: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Dream",
+  },
 
-    dream: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "Dream",
-    },
+  owner: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "User",
+  },
 
-    owner: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "User",
-    },
+  initialPrice: {
+    type: Number,
+  },
 
-    initialPrice: {
-        type: Number,
-    },
+  currentPrice: {
+    type: Number,
+  },
 
-    currentPrice: {
-        type: Number,
-    },
-
-    comment: [{
+  comment: [
+    {
       type: mongoose.SchemaTypes.ObjectId,
       ref: "Comment",
-    }],
-
-    enrollDate: {
-        type: Date,
     },
+  ],
 
-    dueDate: {
-        type:  Date,
-    },
+  enrollDate: {
+    type: Date,
+  },
 
-    participant: {
-        type: Number,
-    },
+  dueDate: {
+    type: Date,
+  },
 
+  participant: {
+    type: Number,
+  },
 });
 
-export default mongoose.model<IAuction & mongoose.Document>("Auction", AuctionSchema);
-
+export default mongoose.model<IAuction & mongoose.Document>(
+  "Auction",
+  AuctionSchema
+);
 ```
 
 - /interfaces/IAuction.ts
