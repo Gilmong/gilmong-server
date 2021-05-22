@@ -1,12 +1,15 @@
 import express from "express";
 const app = express();
 import connectDB from "./Loader/db";
+import cors from "cors"
 
 // Connect Database
 connectDB();
 
 app.use(express.urlencoded());
 app.use(express.json());
+
+app.use(cors());
 
 // Define Routes
 app.use("/api/dream", require("./api/dream"));
