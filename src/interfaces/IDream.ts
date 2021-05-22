@@ -9,7 +9,7 @@ export interface IDream {
     owner : IUser;
     price : number;
     date : Date;
-    solded : boolean;
+    sold : boolean;
     auctioning : boolean;
 }
 
@@ -21,6 +21,6 @@ export interface IDreamInputDTO {
     owner : IUser;
     price : number;
     date : Date;
-    solded : boolean;
+    sold : boolean;
     auctioning : boolean;
 }

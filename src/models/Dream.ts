@@ -74,7 +74,7 @@ const DreamSchema = new mongoose.Schema({
       default : Date.now,
     },
 
-    solded : {
+     sold: {
       type : Boolean,
       required : true,
     },
