@@ -1,8 +1,18 @@
 import mongoose from "mongoose";
-import { IUser } from "./IUser";
 
 export interface IComment {
-  writer: IUser;
+
+  writer: mongoose.Types.ObjectId;
   biddingPrice: number;
   content: string;
+
+}
+
+
+export interface ICommentInputDTO {
+
+  writer: mongoose.Types.ObjectId;
+  biddingPrice: number;
+  content: string;
+  
 }
