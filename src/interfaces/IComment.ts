@@ -8,7 +8,6 @@ export interface IComment {
 
 }
 
-
 export interface ICommentInputDTO {
 
   writer: mongoose.Types.ObjectId;
