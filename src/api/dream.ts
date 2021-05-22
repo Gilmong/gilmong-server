@@ -30,7 +30,6 @@ router.get("/", async (req: Request, res: Response) => {
 });
 
 
-
 /**
  *  @route POST api/dream
  *  @desc Create or update dream
@@ -68,6 +67,25 @@ router.post(
     
   }
 );
+
+/**
+ *  @route GET api/dream/:dream_id
+ *  @desc Get one dream
+ *  @access Public
+ */
+ router.get("/:dream_id", async (req: Request, res: Response) => {
+
+    const dream_id = req.params.dream_id;
+
+    try {
+        const dream = await Dream.findById(dream_id);
+        console.log("dreams : ",dream)
+        res.json(dream);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Server Error");
+    }
+});
 
 
 // /**

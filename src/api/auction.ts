@@ -28,4 +28,22 @@ router.get("/", async (req: Request, res: Response) => {
     }
 });
 
+/**
+ *  @route GET api/auction/:auction_id
+ *  @desc Get one auction
+ *  @access Public
+ */
+ router.get("/:auction_id", async (req: Request, res: Response) => {
+    console.log("finding Auction!");
+    try {
+        const auction = await Auction.findById(req.params.auction_id).populate("dream",["title","image","keyword","content","price"]);
+        // const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+        console.log("dreams : ",auction)
+        res.json(auction);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Server Error");
+    }
+});
+
 module.exports = router;
