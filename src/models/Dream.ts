@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 import { IDream } from "../interfaces/IDream";
 
 const DreamSchema = new mongoose.Schema({
+    title : {
+        type : String,
+        required : true,
+    },
+    
     image : {
       type : String,
       required : true,
@@ -12,10 +17,10 @@ const DreamSchema = new mongoose.Schema({
       required : true,
     },
 
-    keyword : {
+    keyword : [{
       type : String,
       required : true,
-    },
+    }],
 
     dreamer : {
       name: {
@@ -26,17 +31,6 @@ const DreamSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-      },
-      password: {
-        type: String,
-        required: true,
-      },
-      avatar: {
-        type: String,
-      },
-      date: {
-        type: Date,
-        default: Date.now,
       },
     },
 
@@ -49,17 +43,6 @@ const DreamSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-      },
-      password: {
-        type: String,
-        required: true,
-      },
-      avatar: {
-        type: String,
-      },
-      date: {
-        type: Date,
-        default: Date.now,
       },
     },
 

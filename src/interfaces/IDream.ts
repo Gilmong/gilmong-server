@@ -4,7 +4,7 @@ import { IUser } from "./IUser";
 export interface IDream {
     image : string;
     content : string;
-    keyword : string;
+    keyword : [string];
     dreamer : IUser;
     owner : IUser;
     price : number;
@@ -16,7 +16,7 @@ export interface IDream {
 export interface IDreamInputDTO {
     image : string;
     content : string;
-    keyword : string;
+    keyword : [string];
     dreamer : IUser;
     owner : IUser;
     price : number;
