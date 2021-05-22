@@ -2,13 +2,16 @@ import mongoose from "mongoose";
 import { IDream } from "./IDream";
 
 export interface IUser {
+  
   name: string;
   email: string;
   password: string;
   date: Date;
-  boughtDream : [ IDream ];
-  soldDream : [ IDream ];
+  avatar : string;
+  boughtDream : [mongoose.Types.ObjectId];
+  soldDream : [mongoose.Types.ObjectId];
   coin : number;
+
 }
 
 export interface IUserInputDTO {

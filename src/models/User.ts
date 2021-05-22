@@ -7,46 +7,41 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
   email: {
     type: String,
     required: true,
     unique: true,
   },
+
   password: {
     type: String,
     required: true,
   },
+
+  avatar: {
+    type : String,
+  },
+
   date: {
     type: Date,
     default: Date.now,
   },
+
   boughtDream : [{
-
-    title : {
-      type : String,
-      required : true,
-    },
-    content : {
-      type : String,
-      required : true,
-    },
-    
+    type : mongoose.Types.ObjectId,
+    ref : "Dream",
   }],
+
   soldDream : [{
-
-    title : {
-      type : String,
-      required : true,
-    },
-    content : {
-      type : String,
-      required : true,
-    },
-
+    type : mongoose.Types.ObjectId,
+    ref : "Dream",
   }],
+
   coin : {
     type : Number,
     required : true,
+    default : 0,
   }
   
 });
