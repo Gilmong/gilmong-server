@@ -18,7 +18,8 @@ const router = Router();
 router.get("/", async (req: Request, res: Response) => {
     console.log("finding Auction!");
     try {
-        const auctions = await Auction.find();
+        const auctions = await Auction.find().populate("dream",["title","image","keyword","content","price"]);
+        // const profiles = await Profile.find().populate("user", ["name", "avatar"]);
         console.log("dreams : ",auctions)
         res.json(auctions);
     } catch (error) {

@@ -5,11 +5,11 @@ import cors from "cors"
 
 // Connect Database
 connectDB();
+app.use(cors());
 
 app.use(express.urlencoded());
 app.use(express.json());
 
-app.use(cors());
 
 // Define Routes
 app.use("/api/dream", require("./api/dream"));
