@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { IUser } from "./IUser";
 
 export interface IDream {
+    title : string;
     image : string;
     content : string;
     keyword : [string];
@@ -14,6 +15,7 @@ export interface IDream {
 }
 
 export interface IDreamInputDTO {
+    title : string;
     image : string;
     content : string;
     keyword : [string];
