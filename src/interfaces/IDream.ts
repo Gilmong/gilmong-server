@@ -9,7 +9,7 @@ export interface IDream {
     owner : mongoose.Types.ObjectId;
     price : number;
     date : Date;
-    solded : boolean;
+    sold : boolean;
     auctioning : boolean;
 }
 
